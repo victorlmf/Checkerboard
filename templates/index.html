@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/my_style.css') }}">
+    <title>Checkerboard</title>
+</head>
+<body>
+    <h1 style="background-color: {{colorOne}}; color: {{colorTwo}}">*** Checkerboard ***</h1>
+    <div class="container">
+        <table>
+        {% for y in range(yNum): %}
+            <tr>
+                {% for x in range(xNum): %}
+                    {% if (x+y)%2+1 == 1: %}
+                    <td style="background-color: {{colorOne}}"></td>
+                    {% else: %}
+                    <td style="background-color: {{colorTwo}}"></td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
